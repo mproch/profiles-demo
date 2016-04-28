@@ -1,0 +1,9 @@
+<service-descriptions xmlns="http://www.osgi.org/xmlns/sd/v1.0.0">
+  <service-description>
+    <provide interface="pl.mproch.osgi.user.UserService" />
+    <property name="service.exported.interfaces">*</property>
+    <property name="service.exported.configs">org.apache.cxf.rs</property>
+    <property name="service.exported.intents">HTTP</property>
+    <property name="org.apache.cxf.rs.address">http://localhost:9999/user</property>
+  </service-description>
+</service-descriptions>
