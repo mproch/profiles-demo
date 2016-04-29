@@ -34,7 +34,7 @@
                 <artifactId>maven-bundle-plugin</artifactId>
                 <configuration>
                     <instructions>
-                        <Import-Package>org.hibernate.proxy,javassist.util.proxy,*</Import-Package>
+                        <Import-Package>org.hibernate.proxy;resolution:=optional,javassist.util.proxy;resolution:=optional,*</Import-Package>
                         <Meta-Persistence>META-INF/persistence.xml</Meta-Persistence>
                     </instructions>
                 </configuration>
