@@ -1,15 +1,12 @@
 package pl.mproch.osgi.question.impl;
 
-//import pl.mproch.osgi.service1.api.AnswerService;
-
-
 import lombok.extern.slf4j.Slf4j;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
-import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 import pl.mproch.osgi.question.QuestionService;
+import pl.mproch.osgi.question.SampleConfig;
 import pl.mproch.osgi.user.UserService;
 
 @Designate(ocd = SampleConfig.class)
@@ -37,13 +34,4 @@ public class QuestionServiceImpl implements QuestionService {
 
 }
 
-
-@ObjectClassDefinition(name = "Sample Configuration")
-@interface SampleConfig {
-    String stringProperty() default "default";
-
-    int intProperty() default 0;
-
-    boolean booleanProperty() default false;
-}
 

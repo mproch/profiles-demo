@@ -1,0 +1,10 @@
+<property-edits xmlns="http://karaf.apache.org/tools/property-edits/1.0.0">
+    <edits>
+        <edit>
+            <file>system.properties</file>
+            <operation>put</operation>
+            <key>karaf.name</key>
+            <value>${profile}</value>
+        </edit>
+    </edits>
+</property-edits>

@@ -25,9 +25,22 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
+    <properties>
+        <profile>assembly-both</profile>
+    </properties>
 
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <excludes/>
+            </resource>
+        </resources>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -70,18 +83,19 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <useReferenceUrls>true</useReferenceUrls>
-                    <libraries></libraries>
                     <profilesUri>
-                        file://${project.build.resources[0].directory}
+                        file://${project.basedir}/src/main/profiles
                     </profilesUri>
-
-
                     <startupProfiles>
                         <profile>${profile}</profile>
                     </startupProfiles>
-                    <karafVersion>v4x</karafVersion>
                     <javase>1.8</javase>
+                    <useReferenceUrls>true</useReferenceUrls>
+                    <!-- below properties to make it easier for demo -->
+                    <targetServerDirectory>${project.build.directory}/${profile}</targetServerDirectory>
+                    <workDirectory>${project.build.directory}/${profile}</workDirectory>
+                    <archive>${profile}</archive>
+                    <propertyFileEdits>${project.build.directory}/classes/assembly-property-edits.xml</propertyFileEdits>
                 </configuration>
             </plugin>
         </plugins>
