@@ -3,6 +3,7 @@ package pl.mproch.osgi.question.impl;
 import lombok.extern.slf4j.Slf4j;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.metatype.annotations.Designate;
 import pl.mproch.osgi.question.QuestionService;
@@ -21,11 +22,12 @@ public class QuestionServiceImpl implements QuestionService {
     private UserService userService;
 
     public String why(Long userId, String question) {
-        return "answer for " + userService.loadById(userId) + "is: " + sampleConfig.stringProperty();
+        return "Answer for " + userService.loadById(userId) + " is: " + sampleConfig.stringProperty();
     }
 
 
     @Activate
+    @Modified
     public void start(SampleConfig config) {
         this.sampleConfig = config;
         log.info("Got config with stringProperty [{}]", config.stringProperty());
