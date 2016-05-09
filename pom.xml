@@ -17,6 +17,20 @@
         <module>registry</module>
     </modules>
 
+    <repositories>
+        <repository>
+            <id>spring-ebr-repository</id>
+            <name>Spring EBR Repository</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <build>
         <pluginManagement>
             <plugins>
